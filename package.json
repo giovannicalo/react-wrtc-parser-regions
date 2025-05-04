@@ -1,0 +1,43 @@
+{
+	"author": {
+		"email": "giovanni.calo@live.it",
+		"name": "Giovanni Calò",
+		"url": "https://github.com/giovannicalo"
+	},
+	"bugs": {
+		"url": "https://github.com/giovannicalo/react-wrtc-parser-regions/issues"
+	},
+	"dependencies": {
+		"xxhash-wasm": "^1.1.0"
+	},
+	"description": "React WebRTC Regions Metadata Parser",
+	"devDependencies": {
+		"@babel/cli": "^7.27.1",
+		"@babel/core": "^7.27.1",
+		"@babel/preset-env": "^7.27.1",
+		"eslint": "^9.26.0",
+		"eslint-config-giovanni": "giovannicalo/eslint-config",
+		"jest": "^29.7.0"
+	},
+	"engines": {
+		"node": ">=23.11.0"
+	},
+	"homepage": "https://github.com/giovannicalo/react-wrtc-parser-regions",
+	"keywords": ["composite", "parser", "react", "regions", "stream", "video", "webrtc", "websocket", "wrtc", "ws"],
+	"license": "MIT",
+	"main": "build/index.js",
+	"name": "react-wrtc-parser-regions",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/giovannicalo/react-wrtc-parser-regions.git"
+	},
+	"scripts": {
+		"build": "babel --ignore \"**/*.spec.js\" --out-dir build source && node scripts/build",
+		"lint": "eslint -f pretty .",
+		"prepare": "npm run build",
+		"prepublishOnly": "npm run lint && npm test",
+		"start": "jest --watch",
+		"test": "jest"
+	},
+	"version": "0.0.0"
+}
