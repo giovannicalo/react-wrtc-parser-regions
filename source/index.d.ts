@@ -27,8 +27,10 @@ type InvalidState = {
 type State = ValidState | InvalidState;
 
 declare class Parser {
-	constructor();
+	constructor(maximumRegions?: number = 16);
+	get byteSize(): number;
 	parse(data: Uint8Array): Promise<State>;
+	get pixelSize(): number;
 }
 
 export = Parser;

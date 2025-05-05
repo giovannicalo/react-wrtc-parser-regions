@@ -2,14 +2,25 @@ import xxhash from "xxhash-wasm";
 
 class Parser {
 
+	#byteSize = null;
+
 	#hasher = null;
+
+	#pixelSize = null;
 
 	#promise = null;
 
-	constructor() {
+	constructor(maximumRegions = 16) {
 		this.#promise = xxhash().then((hasher) => {
 			this.#hasher = hasher;
 		});
+		const size = 22 + maximumRegions * 20;
+		this.#pixelSize = Math.ceil(size / 4);
+		this.#byteSize = this.#pixelSize * 4;
+	}
+
+	get byteSize() {
+		return this.#byteSize;
 	}
 
 	async parse(data) {
@@ -51,6 +62,10 @@ class Parser {
 			time: Number(view.getBigUint64(0, true)),
 			width: view.getUint16(8, true)
 		};
+	}
+
+	get pixelSize() {
+		return this.#pixelSize;
 	}
 
 }
