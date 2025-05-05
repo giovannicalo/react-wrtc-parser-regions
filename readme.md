@@ -18,7 +18,7 @@ import { Stream } from "react-wrtc";
 import Decoder from "react-wrtc-decoder-webgl";
 import Parser from "react-wrtc-parser-regions";
 
-const stream = new Stream("ws://localhost:8080", null, new Decoder(new Parser()));
+const stream = new Stream("ws://localhost:8080", {}, new Decoder(new Parser()));
 
 export default stream;
 ```
